@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails_kadai</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>ツイート一覧</h1>
+    <table>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+      </tr>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.datetime %></td>
+        <td><%= blog.content %></td>
+        <td><%= link_to '詳細', blog_path(blog.id)  %></td>
+        <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
+        <td><%= link_to '削除', blog_path(blog.id),
+                method: :delete, data: { confirm: '本当に削除していいですか？'} %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= link_to 'ツイート作成', new_blog_path %>
+
+  </body>
+</html>
