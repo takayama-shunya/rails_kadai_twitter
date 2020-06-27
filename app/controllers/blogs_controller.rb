@@ -34,6 +34,10 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, notice: "削除しました"
   end
 
+  def confirm
+    @blog = Blog.new(blog_params)
+  end
+
   private
   def blog_params
     params.require(:blog).permit(:title, :content)

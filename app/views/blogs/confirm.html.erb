@@ -1,0 +1,6 @@
+<h2>以下の内容で送信して良いですか？</h2>
+<%= form_with(model: @blog, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>内容:<%= @blog.content %></p>
+  <%= form.submit  "ツイートする" %>
+<% end %>
