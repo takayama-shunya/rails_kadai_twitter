@@ -1,22 +1,33 @@
-<%= form_with(model: @blog, local: true) do |form| %> 
-  <h1>ツイート作成</h1>
-  <div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="blog_content">
-    <%= form.label :title %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= masg %></li>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>twitter_clone</title>
+    <link rel="stylesheet" type="txet/css" href="">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <main>
+      <%= form_with(model: @blog, local: true) do |form| %> 
+        <h1>ツイート作成</h1>
+        <div class="blog_content">
+          <% form.label :content %>
+          <%= form.text_field :content %>
+        </div>
+        <%= form.submit %>
+        <% if @blog.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+            <ul>
+            <% @blog.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-<% end %>
+    </main>
+  </body>
+</html>
