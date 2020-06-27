@@ -10,24 +10,7 @@
   </head>
   <body>
     <main>
-      <%= form_with(model: @blog, local: true) do |form| %> 
-        <h1>ツイート作成</h1>
-        <div class="blog_content">
-          <% form.label :content %>
-          <%= form.text_field :content %>
-        </div>
-        <%= form.submit %>
-        <% if @blog.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-            <ul>
-            <% @blog.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render 'form' %>
     </main>
   </body>
 </html>
