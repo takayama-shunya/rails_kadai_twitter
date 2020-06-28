@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>内容</th>
+    <th>ツイート日時</th>
+  </tr>
+  <% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.content %></td>
+    <td><%= l blog.created_at %></td>
+    <td><%= link_to '編集', edit_blog_path(blog.id), 
+            date: { confirm: '本当に編集して良いですか？'} %></td>
+    <td><%= link_to '削除', blog_path(blog.id),
+            method: :delete, data: { confirm: '本当に削除していいですか？'} %></td>
+  </tr>
+  <% end %>
+</table>

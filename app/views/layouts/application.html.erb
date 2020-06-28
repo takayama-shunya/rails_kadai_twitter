@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsKadai</title>
+    <title>twitter_clone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+      <li><%= link_to 'ツイート一覧', blogs_path %></li>
+      <li><%= link_to '編集/削除', edit_or_destroy_blogs_path %></li>
+      </ul>
+    </header>
     <%= yield %>
+    <footer>
+     <h3>twitter_clone</h3>
+    </footer>
   </body>
 </html>

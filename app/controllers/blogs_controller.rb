@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :set_bolg, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :list_blogs, only: [:edit_or_destroy, :index]
 
   def new
     @blog = Blog.new
@@ -7,17 +8,23 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
-    if @blog.save
-      redirect_to blogs_path, notice: "ツイートしました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @blog.save
+        redirect_to blogs_path, notice: "ツイートしました！"
+      else
+        render :new
+      end
     end
   end
 
   def index
-    @blogs = Blog.all.order(created_at: :desc)
   end
 
+  def edit_or_destroy
+  end
+    
   def edit
   end
 
@@ -36,6 +43,7 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = Blog.new(blog_params)
+    render :new if @blog.invalid?
   end
 
   private
@@ -43,8 +51,12 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:title, :content)
   end
 
-  def set_bolg
+  def set_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def list_blogs
+    @blogs = Blog.all.order(created_at: :desc)
   end
 
 end
