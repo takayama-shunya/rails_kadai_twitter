@@ -10,15 +10,20 @@
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <ul>
-      <li><%= link_to 'ツイート一覧', blogs_path %></li>
-      <li><%= link_to '編集/削除', edit_or_destroy_blogs_path %></li>
+        <li class="title">twitter_clone</li>
+        <%= link_to(blogs_path) do %>
+          <li class="header_link">ツイート一覧</li>
+        <% end %>
+        <%= link_to(edit_or_destroy_blogs_path) do %>
+          <li class="header_link">編集/削除</li>
+        <% end %>
       </ul>
     </header>
     <%= yield %>
-    <footer>
-     <h3>twitter_clone</h3>
+    <footer class="footer">
+     <h3>dive into code</h3>
     </footer>
   </body>
 </html>

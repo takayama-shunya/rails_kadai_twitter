@@ -1,7 +1,7 @@
 <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %> 
   <div class="blog_content">
     <% form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_area :content, class: "content", size: "40x10", style: "font-size: 20px;" %>
   </div>
     <%= form.submit "ツイートする" %>
   <% if @blog.errors.any? %>

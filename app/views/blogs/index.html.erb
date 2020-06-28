@@ -1,17 +1,23 @@
 <p><%= notice %></p>
 <h1>ツイート一覧</h1>
-<table>
-  <tr>
-    <th>内容</th>
-    <th>ツイート日時</th>
-    <th>編集日時</th>
-  </tr>
-  <% @blogs.each do |blog| %>
+<div>
+  <table>
     <tr>
-      <td><%= blog.content %></td>
-      <td><%= l blog.created_at %></td>
-      <td><%= l blog.updated_at, format: :short %></td>
+      <th class="content">内容</th>
+      <th class="content_data">ツイート日時</th>
+      <th class="content_data">編集日</th>
     </tr>
-  <% end %>
-</table>
+  </table>
+</div>
+<div class="table">
+  <table>
+    <% @blogs.each do |blog| %>
+    <tr>
+      <td class="content"><%= blog.content %></td>
+      <td class="content_data"><%= l blog.created_at %></td>
+      <td class="content_data"><%= l blog.updated_at, format: :short %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 <%= link_to 'ツイート作成', new_blog_path %>
