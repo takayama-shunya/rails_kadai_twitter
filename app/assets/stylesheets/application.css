@@ -81,3 +81,22 @@ th, td {
   text-align: center;
 }
 
+.btn {
+  background-color: skyblue;
+  border-radius: 100%;
+  border: none;
+  width: 80px;
+  height: 80px;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #2e9afe;
+}
+
+i {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+}

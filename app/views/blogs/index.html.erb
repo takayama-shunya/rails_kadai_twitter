@@ -20,4 +20,7 @@
     <% end %>
   </table>
 </div>
-<%= link_to 'ツイート作成', new_blog_path %>
+
+<%= button_to new_blog_path, method: :get, class: 'btn' do %>
+  <i class="fab fa-twitter"><span>ツイート作成</span></i>
+<% end %>
